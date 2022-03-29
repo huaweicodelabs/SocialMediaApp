@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/custom_tool_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/image_preview"
+        android:background="@mipmap/ic_launcher_round"
+        android:contentDescription="@string/todo" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/preview_recycler_imageview"
+        android:layout_gravity="center"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+       >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/add_image"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/ic_baseline_add_24"
+            android:backgroundTint="@color/colorPrimary"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/tag_image"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_baseline_people_24"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/location_image"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_baseline_location_on_24"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/description_post"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/round_button"
+            android:hint="@string/description_for_the_post"
+            android:textColorHint="@color/colorPrimary"
+            android:maxLength="100"
+            android:layout_gravity="center"
+            android:gravity="start"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:textColor="@color/colorPrimary"
+            android:paddingStart="5dp"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/post_image"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_baseline_send_24"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary" />
+</LinearLayout>

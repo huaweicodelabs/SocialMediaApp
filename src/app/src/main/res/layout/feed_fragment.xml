@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/create_post_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button_gray"
+        android:layout_margin="15dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/create_a_post"
+            android:textColor="@color/select_play_text_color"
+            android:layout_gravity="center"
+            android:padding="5dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/camera_image"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/ic_baseline_add_a_photo_24"
+            android:backgroundTint="@color/select_play_text_color"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/video_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_baseline_video_call_24"
+            android:backgroundTint="@color/select_play_text_color"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/gallery_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_baseline_add_gallery_alternate_24"
+            android:backgroundTint="@color/select_play_text_color"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/map_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_baseline_map_48"
+            android:backgroundTint="@color/select_play_text_color"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/feed_recyclerView"
+            android:layout_gravity="center"
+            android:orientation="vertical"/>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

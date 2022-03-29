@@ -1,0 +1,136 @@
+plugins {
+    id 'com.android.application'
+    id 'com.huawei.agconnect'
+}
+
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    ndkVersion "20.1.5948944"
+
+    defaultConfig {
+        applicationId "com.huawei.hms.socialappsharing"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // should correspond to key/value pairs inside the file
+        buildConfigField("String", "PHOTO_MAIN_URL", apikeyProperties['PHOTO_MAIN_URL'])
+        buildConfigField("String", "PHOTO_MAIN_URL1", apikeyProperties['PHOTO_MAIN_URL1'])
+        buildConfigField("String", "CLIENT_ID", apikeyProperties['CLIENT_ID'])
+        buildConfigField("String", "CLIENT_SECRET", apikeyProperties['CLIENT_SECRET'])
+        buildConfigField("String", "TOKEN_URL", apikeyProperties['TOKEN_URL'])
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('xxxx.jks')
+            keyAlias 'xxxx'
+            keyPassword 'xxxxx'
+            storePassword 'xxxx'
+        }
+        release {
+            storeFile file('xxxx.jks')
+            keyAlias 'xxxx'
+            keyPassword 'xxxx'
+            storePassword 'xxxx'
+        }
+    }
+
+    buildTypes {
+        debug{
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+        release {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+
+    implementation "com.huawei.hms:videokit-player:1.0.7.302"
+    implementation 'com.huawei.hms:push:6.3.0.302'
+    implementation 'com.huawei.hms:ads-lite:13.4.51.300'
+    implementation 'com.huawei.hms:hianalytics:6.3.0.301'
+    implementation 'com.huawei.hms:maps:6.3.1.300'
+    implementation 'com.huawei.hms:location:6.3.0.300'
+
+    implementation "com.huawei.agconnect:agconnect-auth-huawei:1.6.0.300"
+    implementation "com.huawei.agconnect:agconnect-auth:1.6.1.300"
+
+    implementation 'com.huawei.agconnect:agconnect-core:1.6.1.300'
+    implementation 'com.huawei.agconnect:agconnect-function:1.6.0.300'
+    implementation 'com.huawei.agconnect:agconnect-cloud-database:1.4.9.300'
+    implementation 'com.huawei.agconnect:agconnect-storage:1.3.1.200'
+
+    implementation 'com.huawei.agconnect:agconnect-crash:1.6.0.300'
+
+    // It is recommended that you integrate the APM SDK to further locate whether an app crash is caused by an app event or behavior such as ANR, launch, and network request.
+    implementation 'com.huawei.agconnect:agconnect-apms:1.5.2.305'
+
+    implementation 'com.google.code.gson:gson:2.8.8'
+
+    implementation "androidx.security:security-crypto:1.1.0-alpha03"
+    implementation 'androidx.exifinterface:exifinterface:1.3.3'
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.gms:play-services-basement:18.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    implementation "com.android.support:multidex:1.0.3"
+
+    implementation "com.google.guava:guava:24.1-jre"
+
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+    implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
